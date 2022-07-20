@@ -15,7 +15,10 @@
 
     <% if current_user %>
       <%= link_to "Cerrar Session" , destroy_user_session_path , method: :delete %>
+      <%= link_to "Editar Perfil" , edit_user_registration_path %>
       <span>Logeado: <%= current_user.email %></span>
+      <span>NickName: <%= current_user.nickname %></span>
+
     <% else %>
       <%= link_to "Iniciar Session" , new_user_session_path %>
     <% end %>
