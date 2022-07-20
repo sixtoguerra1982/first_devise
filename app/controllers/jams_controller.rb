@@ -3,7 +3,11 @@ class JamsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
   # GET /jams or /jams.json
   def index
-    @jams = Jam.all
+    if current_user
+      @jams = current_user.jams
+    else
+      @jams = Jam.all
+    end
   end
 
   # GET /jams/1 or /jams/1.json
